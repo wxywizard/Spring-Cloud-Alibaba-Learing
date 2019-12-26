@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:mysql://172.20.36.215:3306/user_center?characterEncoding=utf8
+    hikari:
+      username: root
+      password: Wizard@123
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    #服务名称尽量用-,不要用_,不要用特殊字符
+    name: user-center
+  cloud:
+    nacos:
+      discovery:
+        #指定 nacos server的地址
+        server-addr: 172.20.36.215:8848
+        #指定namespace
+        #namespace: 2c17de6f-82b2-4b12-931d-277ceeb893e7
+        #NJ
+        #指定集群名称
+        #cluster-name: NJ
+        #设置元数据
+        metadata:
+          instance: c
+          haha: hehe
+          version: v1
+server:
+  port: 8040
+logging:
+  level:
+    # 这样，这个包下的所有mapper都会打印出执行的SQL
+    com.wxywizard.usercenter.dao: debug
