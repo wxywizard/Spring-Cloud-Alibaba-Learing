@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 172.20.32.53:8848
+        file-extension: yaml
+  application:
+    #服务名称尽量用-,不要用_,不要用特殊字符
+    name: vs-config-svc
+  profiles:
+    active: dev

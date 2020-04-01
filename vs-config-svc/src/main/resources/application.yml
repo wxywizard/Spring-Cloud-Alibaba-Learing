@@ -1,0 +1,32 @@
+server:
+  port: 6869
+spring:
+  application:
+    name: vs-config-svc
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.20.32.53:8848
+        metadata:
+          # 自己这个实例的版本
+          version: v0.1
+    inetutils:
+      preferred-networks:
+        - 172.20
+  datasource:
+    url: jdbc:postgresql://172.20.32.190:5432/screen_config?useUnicode=true&characterEncoding=utf8&useSSL=false&stringtype=unspecified
+    hikari:
+      username: dvscreen
+      password: dvscreen
+      driver-class-name: org.postgresql.Driver
+
+#actuator配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
